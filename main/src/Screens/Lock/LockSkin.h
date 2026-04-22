@@ -27,6 +27,8 @@ private:
 	PhoneElement* phoneElement;
 	BatteryElement* batteryElement;
 	lv_obj_t* battery;
+	StatusBar* statusBar = nullptr;
+	MenuBatteryElement* smallBattery = nullptr;
 	ClockLabelBig* clock = nullptr;
 	class NotifIconsElement* icons = nullptr;
 	Slider* locker = nullptr;

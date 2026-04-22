@@ -116,7 +116,7 @@ void BatteryV3::configReader(int pin, adc_cali_handle_t& cali, std::unique_ptr<A
 
 	const adc_cali_curve_fitting_config_t curveCfg = {
 			.unit_id = unit,
-			.chan = chan,
+			// .chan = chan, // Removed in ESP-IDF v5.1
 			.atten = ADC_ATTEN_DB_2_5,
 			.bitwidth = ADC_BITWIDTH_12
 	};

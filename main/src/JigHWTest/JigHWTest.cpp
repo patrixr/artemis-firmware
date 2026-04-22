@@ -291,7 +291,7 @@ bool JigHWTest::BatteryCheck(){
 
 		const adc_cali_curve_fitting_config_t curveCfg = {
 				.unit_id = unit,
-				.chan = chan,
+				// .chan = chan, // Removed in ESP-IDF v5.1
 				.atten = ADC_ATTEN_DB_11,
 				.bitwidth = ADC_BITWIDTH_12
 		};
@@ -347,7 +347,7 @@ bool JigHWTest::VoltReferenceCheck(){
 
 		const adc_cali_curve_fitting_config_t curveCfg = {
 				.unit_id = unit,
-				.chan = chan,
+				// .chan = chan, // Removed in ESP-IDF v5.1
 				.atten = ADC_ATTEN_DB_11,
 				.bitwidth = ADC_BITWIDTH_12
 		};

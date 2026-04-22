@@ -4,6 +4,7 @@
 #include <nvs.h>
 #include "core/lv_theme.h"
 #include "Screens/Lock/Slider.h"
+#include "Screens/Lock/Elements/ZareenConfig.h"
 
 enum class Theme : uint8_t {
 	Theme1 [[maybe_unused]],
@@ -15,7 +16,8 @@ enum class Theme : uint8_t {
 	Theme7 [[maybe_unused]],
 	Theme8 [[maybe_unused]],
 	Theme9 [[maybe_unused]],
-	Default [[maybe_unused]] = Theme1
+	Theme10 [[maybe_unused]],
+	Default [[maybe_unused]] = Theme10
 };
 
 struct ThemeStruct {
@@ -304,6 +306,39 @@ inline static ThemeStruct createTheme(Theme theme){
 
 			break;
 		}
+		case Theme::Theme10:{
+			// Zareen - all values sourced from ZareenConfig.h
+			data.primaryColor          = ZareenCfg::primaryColor;
+			data.secondaryColor        = ZareenCfg::secondaryColor;
+			data.highlightColor        = ZareenCfg::highlightColor;
+			data.backgroundColor       = ZareenCfg::bgColor;
+			data.dateColor             = ZareenCfg::dateColor;
+			data.opacity               = LV_OPA_100;
+			data.clockX                = ZareenCfg::clockX;
+			data.clockY                = ZareenCfg::clockY;
+			data.verticalClock         = ZareenCfg::clockVertical;
+			data.clockPadding          = ZareenCfg::clockPadding;
+			data.dateX                 = ZareenCfg::dateX;
+			data.dateY                 = ZareenCfg::dateY;
+			data.phoneX                = ZareenCfg::phoneX;
+			data.phoneY                = ZareenCfg::phoneY;
+			data.specialPhone          = ZareenCfg::phoneSpecial;
+			data.batteryX              = ZareenCfg::containerX;
+			data.batteryY              = ZareenCfg::containerY;
+			data.sliderY               = ZareenCfg::sliderY;
+			data.sliderConfig.start    = ZareenCfg::sliderStart;
+			data.sliderConfig.end      = ZareenCfg::sliderEnd;
+			data.sliderConfig.y        = ZareenCfg::sliderBarY;
+			data.sliderConfig.neverHide = ZareenCfg::sliderNeverHide;
+			data.notifData.x           = ZareenCfg::notifX;
+			data.notifData.y           = ZareenCfg::notifY;
+			data.notifData.w           = ZareenCfg::notifW;
+			data.notifData.h           = ZareenCfg::notifH;
+			data.notifData.gapPad      = ZareenCfg::notifGap;
+			data.notifData.maxNotifs   = ZareenCfg::notifMaxCount;
+
+			break;
+		}
 		default:{
 			break;
 		}
@@ -321,6 +356,7 @@ const static inline ThemeStruct Theme6 = createTheme(Theme::Theme6);
 const static inline ThemeStruct Theme7 = createTheme(Theme::Theme7);
 const static inline ThemeStruct Theme8 = createTheme(Theme::Theme8);
 const static inline ThemeStruct Theme9 = createTheme(Theme::Theme9);
+const static inline ThemeStruct Theme10 = createTheme(Theme::Theme10);
 const static inline ThemeStruct Default = Theme1;
 
 enum class DateFormat : uint8_t {

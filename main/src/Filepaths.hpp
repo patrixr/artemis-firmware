@@ -146,6 +146,19 @@ namespace File {
 			[[maybe_unused]] constexpr const char* Battery4 = "";
 			[[maybe_unused]] constexpr const char* Charging = "S:/theme9/lock_screen/chrg.bin";
 		}
+
+		namespace Theme10 {
+			[[maybe_unused]] constexpr const char* Background = "S:/theme10/lock_screen/bg.bin";
+			[[maybe_unused]] constexpr const char* Phone = "S:/theme10/lock_screen/phone.bin";
+			[[maybe_unused]] constexpr const char* PhoneDisconnected = "S:/theme10/lock_screen/phoneDc.bin";
+			[[maybe_unused]] constexpr const char* BatteryLevel = "";
+			[[maybe_unused]] constexpr const char* Clock = "";
+			[[maybe_unused]] constexpr const char* Battery1 = "";
+			[[maybe_unused]] constexpr const char* Battery2 = "";
+			[[maybe_unused]] constexpr const char* Battery3 = "";
+			[[maybe_unused]] constexpr const char* Battery4 = "";
+			[[maybe_unused]] constexpr const char* Charging = "";
+		}
 	}
 
 	namespace Clock {
@@ -282,6 +295,21 @@ namespace File {
 			[[maybe_unused]] constexpr const char* Num9 = "S:/theme9/clock/9.bin";
 			[[maybe_unused]] constexpr const char* Colon = "S:/theme9/clock/colon.bin";
 			[[maybe_unused]] constexpr const char* Space = "S:/theme9/clock/space.bin";
+		}
+
+		namespace Theme10 {
+			[[maybe_unused]] constexpr const char* Num0 = "S:/theme10/clock/0.bin";
+			[[maybe_unused]] constexpr const char* Num1 = "S:/theme10/clock/1.bin";
+			[[maybe_unused]] constexpr const char* Num2 = "S:/theme10/clock/2.bin";
+			[[maybe_unused]] constexpr const char* Num3 = "S:/theme10/clock/3.bin";
+			[[maybe_unused]] constexpr const char* Num4 = "S:/theme10/clock/4.bin";
+			[[maybe_unused]] constexpr const char* Num5 = "S:/theme10/clock/5.bin";
+			[[maybe_unused]] constexpr const char* Num6 = "S:/theme10/clock/6.bin";
+			[[maybe_unused]] constexpr const char* Num7 = "S:/theme10/clock/7.bin";
+			[[maybe_unused]] constexpr const char* Num8 = "S:/theme10/clock/8.bin";
+			[[maybe_unused]] constexpr const char* Num9 = "S:/theme10/clock/9.bin";
+			[[maybe_unused]] constexpr const char* Colon = "S:/theme10/clock/colon.bin";
+			[[maybe_unused]] constexpr const char* Space = "S:/theme10/clock/space.bin";
 		}
 	}
 
@@ -528,6 +556,33 @@ namespace File {
 			[[maybe_unused]] constexpr const char* Trash = "";
 			[[maybe_unused]] constexpr const char* TrashSel = "";
 		}
+
+		namespace Theme10 {
+			[[maybe_unused]] constexpr const char* AppInst = "S:/theme10/icon/app_inst.bin";
+			[[maybe_unused]] constexpr const char* AppMess = "S:/theme10/icon/app_mess.bin";
+			[[maybe_unused]] constexpr const char* AppSms = "S:/theme10/icon/app_sms.bin";
+			[[maybe_unused]] constexpr const char* AppSnap = "S:/theme10/icon/app_snap.bin";
+			[[maybe_unused]] constexpr const char* AppTiktok = "S:/theme10/icon/app_tiktok.bin";
+			[[maybe_unused]] constexpr const char* AppWapp = "S:/theme10/icon/app_wapp.bin";
+			[[maybe_unused]] constexpr const char* Back = "";
+			[[maybe_unused]] constexpr const char* BackSel = "";
+			[[maybe_unused]] constexpr const char* CallIn = "S:/theme10/icon/call_in.bin";
+			[[maybe_unused]] constexpr const char* CallMiss = "S:/theme10/icon/call_miss.bin";
+			[[maybe_unused]] constexpr const char* CallOut = "S:/theme10/icon/call_out.bin";
+			[[maybe_unused]] constexpr const char* CatEmail = "S:/theme10/icon/cat_email.bin";
+			[[maybe_unused]] constexpr const char* CatEntert = "S:/theme10/icon/cat_entert.bin";
+			[[maybe_unused]] constexpr const char* CatFin = "S:/theme10/icon/cat_fin.bin";
+			[[maybe_unused]] constexpr const char* CatHealth = "S:/theme10/icon/cat_health.bin";
+			[[maybe_unused]] constexpr const char* CatLoc = "S:/theme10/icon/cat_loc.bin";
+			[[maybe_unused]] constexpr const char* CatNews = "S:/theme10/icon/cat_news.bin";
+			[[maybe_unused]] constexpr const char* CatOther = "S:/theme10/icon/cat_other.bin";
+			[[maybe_unused]] constexpr const char* CatSched = "S:/theme10/icon/cat_sched.bin";
+			[[maybe_unused]] constexpr const char* CatSoc = "S:/theme10/icon/cat_soc.bin";
+			[[maybe_unused]] constexpr const char* LockClosed = "S:/theme10/icon/lock_closed.bin";
+			[[maybe_unused]] constexpr const char* LockOpen = "S:/theme10/icon/lock_open.bin";
+			[[maybe_unused]] constexpr const char* Trash = "";
+			[[maybe_unused]] constexpr const char* TrashSel = "";
+		}
 	}
 
 	namespace SmallIcons {
@@ -673,6 +728,8 @@ namespace File {
 		}
 
 		namespace Theme9 = Icons::Theme9;
+
+		namespace Theme10 = Icons::Theme10;
 	}
 
 	namespace Menu {
@@ -855,6 +912,26 @@ namespace File {
 			[[maybe_unused]] constexpr const char* Rover = "S:/theme9/menu/rover.bin";
 			[[maybe_unused]] constexpr const char* Notification = "S:/theme9/menu/notif.bin";
 		}
+
+		namespace Theme10 {
+			[[maybe_unused]] constexpr const char* BatteryEmpty = "S:/theme10/menu/batteryEmpty.bin";
+			[[maybe_unused]] constexpr const char* BatteryFull = "S:/theme10/menu/batteryFull.bin";
+			[[maybe_unused]] constexpr const char* BatteryLow = "S:/theme10/menu/batteryLow.bin";
+			[[maybe_unused]] constexpr const char* BatteryMid = "S:/theme10/menu/batteryMid.bin";
+			[[maybe_unused]] constexpr const char* BigLowBattery = "";
+			[[maybe_unused]] constexpr const char* Phone = "S:/theme10/menu/phone.bin";
+			[[maybe_unused]] constexpr const char* PhoneDisconnected = "S:/theme10/menu/phoneDc.bin";
+			[[maybe_unused]] constexpr const char* Background = "S:/theme10/menu/bg.bin";
+			[[maybe_unused]] constexpr const char* SettingsBackground = Background;
+			[[maybe_unused]] constexpr const char* Connection = "S:/theme10/menu/connection.bin";
+			[[maybe_unused]] constexpr const char* Find = "S:/theme10/menu/find.bin";
+			[[maybe_unused]] constexpr const char* Level = "S:/theme10/menu/level.bin";
+			[[maybe_unused]] constexpr const char* Settings = "S:/theme10/menu/settings.bin";
+			[[maybe_unused]] constexpr const char* Theremin = "S:/theme10/menu/theremin.bin";
+			[[maybe_unused]] constexpr const char* Lunar = "S:/theme10/menu/lunar.bin";
+			[[maybe_unused]] constexpr const char* Rover = "S:/theme10/menu/rover.bin";
+			[[maybe_unused]] constexpr const char* Notification = "S:/theme10/menu/notif.bin";
+		}
 	}
 }
 
@@ -867,6 +944,7 @@ namespace File {
 	theme == Theme::Theme6 ? File::Category::Theme6::Filename : 				\
 	theme == Theme::Theme7 ? File::Category::Theme7::Filename : 				\
 	theme == Theme::Theme8 ? File::Category::Theme8::Filename : 				\
-	theme == Theme::Theme9 ? File::Category::Theme9::Filename : ""				\
+	theme == Theme::Theme9 ? File::Category::Theme9::Filename : \
+	theme == Theme::Theme10 ? File::Category::Theme10::Filename : ""				\
 
 #endif //ARTEMIS_FIRMWARE_FILEPATHS_HPP

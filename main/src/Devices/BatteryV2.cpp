@@ -21,7 +21,7 @@ BatteryV2::BatteryV2(ADC& adc) : hysteresis({ 0, 4, 15, 30, 70, 100 }, 3) {
 
 	const adc_cali_curve_fitting_config_t curveCfg = {
 			.unit_id = unit,
-			.chan = chan,
+			// .chan = chan, // Removed in ESP-IDF v5.1
 			.atten = ADC_ATTEN_DB_11,
 			.bitwidth = ADC_BITWIDTH_12
 	};

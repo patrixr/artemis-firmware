@@ -3,6 +3,7 @@
 #include "Settings/Settings.h"
 #include "Util/Services.h"
 #include "LV_Interface/InputLVGL.h"
+#include "Screens/MainMenu/MenuBatteryElement.h"
 #include "Screens/Lock/Elements/Theme2BatteryElement.h"
 #include "Screens/Lock/Elements/Theme3BatteryElement.h"
 #include "Screens/Lock/Elements/Theme4BatteryElement.h"
@@ -11,6 +12,8 @@
 #include "Screens/Lock/Elements/Theme9BatteryElement.h"
 #include "Screens/Lock/Elements/Theme7BatteryElement.h"
 #include "Screens/Lock/Elements/Theme8BatteryElement.h"
+#include "Screens/Lock/Elements/Theme10BatteryElement.h"
+#include "Screens/Lock/Elements/ZareenConfig.h"
 #include "UIElements/NotifIconsElement.h"
 #include "Theme/theme.h"
 
@@ -35,6 +38,14 @@ void LockSkin::loop(){
 
 	if(batteryElement != nullptr){
 		batteryElement->loop();
+	}
+
+	if(statusBar != nullptr){
+		statusBar->loop();
+	}
+
+	if(smallBattery != nullptr){
+		smallBattery->loop();
 	}
 
 	if(clock != nullptr){
@@ -255,6 +266,17 @@ void LockSkin::buildUI(){
 			batteryElement = new Theme9BatteryElement(main);
 			break;
 		}
+		case Theme::Theme10:{
+			batteryElement = new Theme10BatteryElement(main);
+			// Small battery icon above the date
+			smallBattery = new MenuBatteryElement(main);
+			lv_obj_set_align(*smallBattery, LV_ALIGN_CENTER);
+			lv_obj_set_x(*smallBattery, ZareenCfg::smallBatteryX);
+			lv_obj_set_y(*smallBattery, ZareenCfg::smallBatteryY);
+			// Hide the standalone phone element (no cross)
+			lv_obj_add_flag(*phoneElement, LV_OBJ_FLAG_HIDDEN);
+			break;
+		}
 		default:{
 			break;
 		}
@@ -279,9 +301,25 @@ void LockSkin::buildUI(){
 	}
 
 	lv_obj_set_style_text_font(date, &landerfont, 0);
-	lv_obj_set_align(date, LV_ALIGN_CENTER);
-	lv_obj_set_x(date, themeData.dateX);
-	lv_obj_set_y(date, themeData.dateY);
+	if(themeData.theme == Theme::Theme10){
+		lv_obj_set_align(date, LV_ALIGN_TOP_LEFT);
+		lv_obj_set_x(date, ZareenCfg::dateX);
+		lv_obj_set_y(date, ZareenCfg::dateY);
+		// Reposition battery to top-right with gold recolor
+		lv_obj_set_align(*smallBattery, LV_ALIGN_TOP_RIGHT);
+		lv_obj_set_x(*smallBattery, ZareenCfg::smallBatteryX);
+		lv_obj_set_y(*smallBattery, ZareenCfg::smallBatteryY);
+		// Recolor battery image gold to match Earth Orbit bar
+		lv_obj_t* batImg = lv_obj_get_child(*smallBattery, 0);
+		if(batImg){
+			lv_obj_set_style_img_recolor(batImg, ZareenCfg::yearBarColor, 0);
+			lv_obj_set_style_img_recolor_opa(batImg, LV_OPA_COVER, 0);
+		}
+	}else{
+		lv_obj_set_align(date, LV_ALIGN_CENTER);
+		lv_obj_set_x(date, themeData.dateX);
+		lv_obj_set_y(date, themeData.dateY);
+	}
 	lv_obj_set_style_text_color(date, themeData.dateColor, 0);
 	setDateLabel();
 
@@ -358,8 +396,19 @@ void LockSkin::setDateLabel(){
 							 tm.tm_mday % 10 == 3 && tm.tm_mday / 10 != 1 ? "RD" : "TH");
 	const std::string month = months[tm.tm_mon];
 
-	const std::string dateString = (settings->get().dateFormat == DateFormat::Regular ? day : month) + " " +
-								   (settings->get().dateFormat == DateFormat::Regular ? month : day) + " " + std::to_string(tm.tm_year + 1900);
+	std::string dateString;
+	if(settings->get().themeData.theme == Theme::Theme10){
+		// DD/MM/YYYY format for Zareen
+		char buf[32];
+		snprintf(buf, sizeof(buf), "%02d/%02d/%04d",
+			tm.tm_mday,
+			tm.tm_mon + 1,
+			tm.tm_year + 1900);
+		dateString = buf;
+	}else{
+		dateString = (settings->get().dateFormat == DateFormat::Regular ? day : month) + " " +
+					 (settings->get().dateFormat == DateFormat::Regular ? month : day) + " " + std::to_string(tm.tm_year + 1900);
+	}
 
 	lv_label_set_text(date, dateString.c_str());
 }
