@@ -7,3 +7,4 @@ sdkconfig*
 !sdkconfig
 
 spiffs.bin
+esp-idf
